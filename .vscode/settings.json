@@ -1,23 +1,23 @@
 {
   "tailwindCSS.experimental.configFile": "packages/ui/src/styles/globals.css",
   "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#4ac368",
-    "activityBar.background": "#4ac368",
-    "activityBar.foreground": "#15202b",
-    "activityBar.inactiveForeground": "#15202b99",
-    "activityBarBadge.background": "#7357c7",
+    "activityBar.activeBackground": "#2d7e36",
+    "activityBar.background": "#2d7e36",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#3c328d",
     "activityBarBadge.foreground": "#e7e7e7",
     "commandCenter.border": "#e7e7e799",
-    "sash.hoverBorder": "#4ac368",
-    "statusBar.background": "#36a451",
+    "sash.hoverBorder": "#2d7e36",
+    "statusBar.background": "#205926",
     "statusBar.foreground": "#e7e7e7",
-    "statusBarItem.hoverBackground": "#4ac368",
-    "statusBarItem.remoteBackground": "#36a451",
+    "statusBarItem.hoverBackground": "#2d7e36",
+    "statusBarItem.remoteBackground": "#205926",
     "statusBarItem.remoteForeground": "#e7e7e7",
-    "titleBar.activeBackground": "#36a451",
+    "titleBar.activeBackground": "#205926",
     "titleBar.activeForeground": "#e7e7e7",
-    "titleBar.inactiveBackground": "#36a45199",
+    "titleBar.inactiveBackground": "#20592699",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.remoteColor": "#36a451"
+  "peacock.remoteColor": "#205926"
 }
