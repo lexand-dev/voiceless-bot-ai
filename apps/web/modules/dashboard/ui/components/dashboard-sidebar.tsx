@@ -26,6 +26,7 @@ import {
   SidebarMenuButton,
   SidebarRail
 } from "@workspace/ui/components/sidebar";
+import { cn } from "@workspace/ui/lib/utils";
 
 const customerSupportItems = [
   {
@@ -116,7 +117,10 @@ export const DashboardSidebar = () => {
                   <SidebarMenuButton
                     asChild
                     isActive={isActive(item.url)}
-                    className="justify-start"
+                    className={cn(
+                      isActive(item.url) &&
+                        "bg-gradient-to-b! from-sidebar-primary! to-emerald-300! text-sidebar-accent-foreground! hover:to-emerald-300!"
+                    )}
                     size="sm"
                   >
                     <Link href={item.url}>
@@ -140,7 +144,10 @@ export const DashboardSidebar = () => {
                   <SidebarMenuButton
                     asChild
                     isActive={isActive(item.url)}
-                    className="justify-start"
+                    className={cn(
+                      isActive(item.url) &&
+                        "bg-gradient-to-b! from-sidebar-primary! to-emerald-400! text-sidebar-accent-foreground! hover:to-emerald-300!"
+                    )}
                     size="sm"
                   >
                     <Link href={item.url}>
@@ -164,7 +171,10 @@ export const DashboardSidebar = () => {
                   <SidebarMenuButton
                     asChild
                     isActive={isActive(item.url)}
-                    className="justify-start"
+                    className={cn(
+                      isActive(item.url) &&
+                        "bg-gradient-to-b! from-sidebar-primary! to-emerald-300! text-sidebar-accent-foreground! hover:to-emerald-300!"
+                    )}
                     size="sm"
                   >
                     <Link href={item.url}>
