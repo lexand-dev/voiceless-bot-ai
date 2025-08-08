@@ -2,12 +2,13 @@
 
 import { WidgetFooter } from "../components/widget-footer";
 import { WidgetHeader } from "../components/widget-header";
+import { WidgetAuthScreen } from "../screens/widget-auth-screen";
 
 interface Props {
   organizationId: string;
 }
 
-export const WidgetView = ({ organizationId }: Props) => {
+/* export const WidgetView = ({ organizationId }: Props) => {
   return (
     <main className="flex flex-col min-h-screen min-w-screen size-full overflow-hidden rounded-xl border bg-muted">
       <WidgetHeader>
@@ -21,6 +22,14 @@ export const WidgetView = ({ organizationId }: Props) => {
         <p>Organization ID: {organizationId}</p>
       </div>
       <WidgetFooter />
+    </main>
+  );
+}; */
+
+export const WidgetView = ({ organizationId }: Props) => {
+  return (
+    <main className="flex flex-col min-h-screen min-w-screen size-full overflow-hidden rounded-xl border bg-muted">
+      <WidgetAuthScreen />
     </main>
   );
 };
