@@ -5,6 +5,7 @@ import { useAtomValue } from "jotai";
 import { screenAtom } from "../../atoms/widget-atoms";
 import { WidgetAuthScreen } from "../screens/widget-auth-screen";
 import { WidgetChatScreen } from "../screens/widget-chat-screen";
+import { WidgetInboxScreen } from "../screens/widget-inbox-screen";
 import { WidgetErrorScreen } from "../screens/widget-error-screen";
 import { WidgetLoadingScreen } from "../screens/widget-loading-screen";
 import { WidgetSelectionScreen } from "../screens/widget-selection-screen";
@@ -21,7 +22,7 @@ export const WidgetView = ({ organizationId }: Props) => {
     loading: <WidgetLoadingScreen organizationId={organizationId} />,
     auth: <WidgetAuthScreen />,
     voice: <p>Voice view</p>,
-    inbox: <p>Inbox view</p>,
+    inbox: <WidgetInboxScreen />,
     selection: <WidgetSelectionScreen />,
     chat: <WidgetChatScreen />,
     contact: <p>Contact view</p>
