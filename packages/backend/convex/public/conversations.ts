@@ -25,6 +25,13 @@ export const getOne = query({
       });
     }
 
+    if (conversation?.contactSessionId !== session._id) {
+      throw new ConvexError({
+        code: "FORBIDDEN",
+        message: "You do not have access to this conversation"
+      });
+    }
+
     return {
       _id: conversation._id,
       status: conversation.status,
