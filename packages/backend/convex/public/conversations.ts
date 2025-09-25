@@ -67,11 +67,13 @@ export const getMany = query({
       .order("desc")
       .paginate(args.paginationOpts);
 
-    // To assign last message to each conversation for display purposes
+    // To assign last message to each conversation for UI display purposes
     const conversationsWithLastMessage = await Promise.all(
       conversations.page.map(async (conversation) => {
         let lastMessage: MessageDoc | null = null;
 
+        // Fetch the most recent message in the conversation's thread
+        // TODO: This could be optimized with a dedicated lastMessageId field in conversations
         const messages = await supportAgent.listMessages(ctx, {
           threadId: conversation.threadId,
           paginationOpts: { numItems: 1, cursor: null }
@@ -118,6 +120,7 @@ export const create = mutation({
       userId: args.organizationId
     });
 
+    // This is the initial message from the agent when a conversation is created
     await saveMessage(ctx, components.agent, {
       threadId,
       message: {

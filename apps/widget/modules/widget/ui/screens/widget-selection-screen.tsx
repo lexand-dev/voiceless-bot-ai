@@ -19,6 +19,8 @@ import { WidgetFooter } from "@/modules/widget/ui/components/widget-footer";
 import { WidgetHeader } from "@/modules/widget/ui/components/widget-header";
 
 export const WidgetSelectionScreen = () => {
+  const [isPending, setIsPending] = useState(false);
+
   const setScreen = useSetAtom(screenAtom);
   const setErrorMessage = useSetAtom(errorMessageAtom);
   const setConversationId = useSetAtom(conversationIdAtom);
@@ -29,7 +31,6 @@ export const WidgetSelectionScreen = () => {
   );
 
   const createConversation = useMutation(api.public.conversations.create);
-  const [isPending, setIsPending] = useState(false);
 
   const handleNewConversation = async () => {
     if (!organizationId) {

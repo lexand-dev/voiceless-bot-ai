@@ -66,6 +66,7 @@ export const WidgetChatScreen = () => {
     setScreen("selection");
   };
 
+  // Load conversation details
   const conversation = useQuery(
     api.public.conversations.getOne,
     conversationId && contactSessionId
@@ -76,6 +77,7 @@ export const WidgetChatScreen = () => {
       : "skip"
   );
 
+  // Load messages for the conversation's thread
   const messages = useThreadMessages(
     api.public.messages.getMany,
     conversation?.threadId && contactSessionId
@@ -87,6 +89,7 @@ export const WidgetChatScreen = () => {
     { initialNumItems: 10 }
   );
 
+  // Infinite scroll for messages
   const { topElementRef, handleLoadMore, canLoadMore, isLoadingMore } =
     useInfiniteScroll({
       status: messages.status,
@@ -101,6 +104,7 @@ export const WidgetChatScreen = () => {
     }
   });
 
+  // Handle message submission
   const createMessage = useAction(api.public.messages.create);
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     if (!conversation || !contactSessionId) {

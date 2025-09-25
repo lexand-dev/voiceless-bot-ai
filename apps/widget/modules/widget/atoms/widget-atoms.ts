@@ -11,6 +11,7 @@ export const organizationIdAtom = atom<string | null>(null);
 // This atom is used to store the contact session ID for a specific organization
 export const contactSessionIdAtomFamily = atomFamily(
   (organizationId: string) => {
+    // Each organization has its own contact session ID stored in localStorage
     return atomWithStorage<Id<"contactSessions"> | null>(
       `${CONTACT_SESSION_KEY}_${organizationId}`,
       null
