@@ -62,6 +62,7 @@ export const create = action({
         }
       );
     } else {
+      // Just save the message when status is scaleted
       await saveMessage(ctx, components.agent, {
         threadId: args.threadId,
         prompt: args.prompt
