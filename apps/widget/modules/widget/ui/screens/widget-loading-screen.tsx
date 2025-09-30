@@ -21,21 +21,22 @@ export const WidgetLoadingScreen = ({
 }: {
   organizationId: string | null;
 }) => {
-  const [step, setStep] = useState<InitStep>("org");
+  const [step, setStep] = useState<InitStep>("org"); // state machine steps
   const [sessionValid, setSessionValid] = useState(false);
 
-  const loadingMessage = useAtomValue(loadingMessageAtom);
+  const setScreen = useSetAtom(screenAtom);
+  const setErrorMessage = useSetAtom(errorMessageAtom);
   const setOrganizationId = useSetAtom(organizationIdAtom);
   const setLoadingMessage = useSetAtom(loadingMessageAtom);
-  const setErrorMessage = useSetAtom(errorMessageAtom);
-  const setScreen = useSetAtom(screenAtom);
 
+  const loadingMessage = useAtomValue(loadingMessageAtom);
   const contactSessionId = useAtomValue(
     contactSessionIdAtomFamily(organizationId || "")
   );
 
   // Step 1: Validate organization
   const validateOrganization = useAction(api.public.organizations.validate);
+
   useEffect(() => {
     if (step !== "org") {
       return;
@@ -80,6 +81,7 @@ export const WidgetLoadingScreen = ({
   const validateContactSession = useMutation(
     api.public.contactSessions.validate
   );
+
   useEffect(() => {
     if (step !== "session") {
       return;
@@ -97,6 +99,7 @@ export const WidgetLoadingScreen = ({
 
     validateContactSession({ contactSessionId })
       .then((result) => {
+        // If session is valid, proceed to settings
         setSessionValid(result.valid);
         setStep("done");
       })
@@ -112,6 +115,7 @@ export const WidgetLoadingScreen = ({
       return;
     }
 
+    // In this step we ensure that we have everything we need to proceed
     const hasValidSession = contactSessionId && sessionValid;
     setScreen(hasValidSession ? "selection" : "auth");
   }, [step, contactSessionId, sessionValid, setScreen]);
